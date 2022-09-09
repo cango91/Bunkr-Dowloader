@@ -21,7 +21,7 @@ class Downloader:
             if not os.path.isdir(path):
                 os.mkdir(path)
             with open(os.path.join(path, video.videoName), "wb") as f:
-                pbar = tqdm(total=int(r.headers['Content-Length']))
+                pbar = tqdm(total=int(r.headers['Content-Length']), unit='B', unit_scale=True, unit_divisor=1024)
                 for chunk in r.iter_content(chunk_size=8192):
                     if chunk:
                         f.write(chunk)

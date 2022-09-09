@@ -1,4 +1,4 @@
-from video import Video
+from video import Video, sizeReadable
 
 class Album:
 
@@ -7,3 +7,16 @@ class Album:
         self.videosCount = videosCount
         self.videos = videos
 
+    def printAlbumsList(self):
+        print(f"Album Name: {self.albumName} (Total videos: {self.videosCount}) (TotlaSize: {sizeReadable(self.getAlbumTotalSize())})")
+        print("-------------------------------------------------------------------------------------------------------------------------------")
+        counter = 0
+        for video in self.videos :
+            counter += 1
+            print(f"{counter}\t->\t{video.getDownloadUrl()}\t{sizeReadable(video.size)}")
+
+    def getAlbumTotalSize(self):
+        size = 0
+        for video in self.videos:
+            size += video.size
+        return size

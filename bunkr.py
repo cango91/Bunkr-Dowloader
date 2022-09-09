@@ -4,14 +4,14 @@ from downloader import Downloader
 
 def main(url: str):
 
-    # url="https://bunkr.is/a/pn9T9bjs"
     print(url)
     
     parser = Parser(url)
     album = parser.getAlbum()
 
-    downloader = Downloader()
+    album.printAlbumsList()
 
+    downloader = Downloader()
     downloader.downloadAlbum(album)
         
     print()
