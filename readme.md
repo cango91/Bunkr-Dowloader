@@ -1,5 +1,8 @@
 # Bunkr Downloader
 
+This python script is used to download a full album just with providing its link.
+Details can be found bellow.
+
 **Caution**: Use this python script at your own risk. This is only for test purposes, and not intended to infringe any copyright what so ever. 
 
 # How to use
