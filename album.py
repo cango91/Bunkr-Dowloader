@@ -16,7 +16,4 @@ class Album:
             print(f"{counter}\t->\t{video.getDownloadUrl()}\t{sizeReadable(video.size)}")
 
     def getAlbumTotalSize(self):
-        size = 0
-        for video in self.videos:
-            size += video.size
-        return size
+        return sum(video.size for video in self.videos)

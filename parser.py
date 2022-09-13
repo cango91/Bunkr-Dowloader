@@ -12,7 +12,7 @@ class Parser:
     def getAlbum(self) -> Album:
         html = requests.get(self.url)
         if html.status_code != 200 :
-            print("Error: Status code {}".format(html.status_code))
+            print(f"Error: Status code {html.status_code}")
             return
 
         soup = BeautifulSoup(html.content, 'html.parser')
@@ -26,7 +26,8 @@ class Parser:
         videos = []
 
         for el in files :
-            video = Video(el['name'], el['cdn'], int(el['size']))
+            size = int(float(el['size']))
+            video = Video(el['name'], el['cdn'], size)
             videos.append(video)
 
         videos.sort(key=lambda x: x.size, reverse=True)
