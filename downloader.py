@@ -14,8 +14,11 @@ class Downloader:
         with requests.get(url, stream=True) as r :
             r.raise_for_status()
             curr_dir = os.path.dirname(__file__)
+            dl_dir = os.path.join(curr_dir,'downloads')
+            if not os.path.isdir(dl_dir):
+                os.mkdir(dl_dir)
             if albumName != '':
-                path = os.path.join(curr_dir, f"downloads/{albumName}") 
+                path = os.path.join(dl_dir, albumName) 
             else:
                 path = os.path.join(curr_dir, "downloads/") 
             if not os.path.isdir(path):
